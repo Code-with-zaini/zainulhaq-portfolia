@@ -8,7 +8,7 @@ const projects = [
     description: "A comprehensive banking application built with C++ featuring account management, transaction processing, and file handling capabilities.",
     tech: ["C++", "OOP", "File Handling", "Data Structures"],
     features: ["Account Management", "Transaction History", "Balance Tracking", "Secure Authentication"],
-    repoUrl: "https://github.com/Code-with-zaini/bank-management-system",
+    repoUrl: "https://github.com/Code-with-zaini/Bank-Management-Project",
     demoUrl: "",
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     description: "Implementation of Dijkstra's algorithm for finding the shortest path in weighted graphs, optimizing delivery routes and navigation systems.",
     tech: ["C++", "Graph Theory", "Dijkstra's Algorithm", "Data Structures"],
     features: ["Shortest Path Finding", "Graph Visualization", "Performance Optimization", "Real-world Applications"],
-    repoUrl: "https://github.com/Code-with-zaini/route-optimization",
+    repoUrl: "https://github.com/Code-with-zaini/User-Driven-Route-Finder-and-Optimizer",
     demoUrl: "",
   },
   {
@@ -24,7 +24,7 @@ const projects = [
     description: "Full-stack web application for online banking with user authentication, account management, and transaction processing.",
     tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
     features: ["User Authentication", "Transaction Management", "Account Dashboard", "Security Features"],
-    repoUrl: "https://github.com/Code-with-zaini/web-banking",
+    repoUrl: "https://github.com/Code-with-zaini/Banking-System-PHP-SemesterProject",
     demoUrl: "",
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     description: "Comprehensive data analysis and machine learning project using real-world datasets to predict trends and extract insights.",
     tech: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
     features: ["Data Preprocessing", "Feature Engineering", "ML Models", "Visualization"],
-    repoUrl: "https://github.com/Code-with-zaini/data-science-analysis",
+    repoUrl: "https://github.com/Code-with-zaini/Exploratory-Data-analysis-with-Pyhton",
     demoUrl: "",
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     description: "Advanced data cleaning and transformation pipeline handling messy datasets and preparing them for analysis.",
     tech: ["Python", "Pandas", "NumPy", "Data Cleaning"],
     features: ["Missing Data Handling", "Outlier Detection", "Data Transformation", "Automated Pipeline"],
-    repoUrl: "https://github.com/Code-with-zaini/data-wrangling-python",
+    repoUrl: "https://github.com/Code-with-zaini/Data-Wrangling-with-Python",
     demoUrl: "",
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     description: "Well-documented portfolio showcasing code quality, best practices, and comprehensive project documentation.",
     tech: ["Git", "Documentation", "Best Practices", "Open Source"],
     features: ["Clean Code", "Documentation", "Version Control", "Collaboration"],
-    repoUrl: "https://github.com/Code-with-zaini",
+    repoUrl: "https://github.com/Code-with-zaini/zainulhaq-portfolio",
     demoUrl: "",
   },
 ];
