@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
-import { Award, Trophy, CheckCircle, Star } from "lucide-react";
+import { Award, Trophy, Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import dataAnalysisCert from "@/assets/certificates/data-analysis-python.jpg";
+import pythonDataScienceCert from "@/assets/certificates/python-for-data-science.jpg";
+import toolsDataScienceCert from "@/assets/certificates/tools-for-data-science.jpg";
+import whatIsDataScienceCert from "@/assets/certificates/what-is-data-science.jpg";
+import genAICert from "@/assets/certificates/genai-prompt-engineering.jpg";
 
 const achievements = [
   {
@@ -20,12 +33,36 @@ const achievements = [
 ];
 
 const certifications = [
-  "Python for Data Science (Coursera)",
-  "Machine Learning Specialization (Stanford)",
-  "SQL for Data Analytics",
-  "Tableau/Power BI Visualization",
-  "Google Data Analytics Professional Certificate",
-  "Deep Learning Fundamentals",
+  {
+    title: "Data Analysis with Python",
+    image: dataAnalysisCert,
+    issuer: "IBM - Coursera",
+    date: "September 2025",
+  },
+  {
+    title: "Python for Data Science, AI & Development",
+    image: pythonDataScienceCert,
+    issuer: "IBM - Coursera",
+    date: "August 2025",
+  },
+  {
+    title: "Tools for Data Science",
+    image: toolsDataScienceCert,
+    issuer: "IBM - Coursera",
+    date: "September 2025",
+  },
+  {
+    title: "What is Data Science?",
+    image: whatIsDataScienceCert,
+    issuer: "IBM - Coursera",
+    date: "August 2025",
+  },
+  {
+    title: "Generative AI: Prompt Engineering Basics",
+    image: genAICert,
+    issuer: "IBM - Coursera",
+    date: "July 2025",
+  },
 ];
 
 export function Achievements() {
@@ -76,30 +113,59 @@ export function Achievements() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="backdrop-blur-xl bg-card p-8 rounded-3xl border-2 border-primary/20 shadow-2xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-xl bg-gradient-primary text-primary-foreground">
-                <CheckCircle className="h-6 w-6" />
-              </div>
-              <h3 className="text-2xl font-bold">Certifications</h3>
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold mb-2">
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Professional Certifications</span>
+              </h3>
+              <p className="text-muted-foreground">Verified credentials from leading institutions</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={cert}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all"
-                >
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary" />
-                  <span className="font-medium text-sm">{cert}</span>
-                </motion.div>
-              ))}
-            </div>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                }),
+              ]}
+              className="w-full max-w-5xl mx-auto"
+            >
+              <CarouselContent>
+                {certifications.map((cert, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="p-2"
+                    >
+                      <div className="group relative overflow-hidden rounded-2xl border-2 border-primary/20 bg-card shadow-lg hover:shadow-2xl hover:border-primary/40 transition-all duration-300">
+                        <div className="aspect-[1.414/1] overflow-hidden">
+                          <img
+                            src={cert.image}
+                            alt={cert.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-0 left-0 right-0 p-4">
+                            <h4 className="text-sm font-bold mb-1 line-clamp-2">{cert.title}</h4>
+                            <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+                            <p className="text-xs text-primary mt-1">{cert.date}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 -translate-x-12" />
+              <CarouselNext className="right-0 translate-x-12" />
+            </Carousel>
           </motion.div>
         </div>
       </div>
