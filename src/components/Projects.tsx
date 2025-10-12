@@ -8,36 +8,48 @@ const projects = [
     description: "A comprehensive banking application built with C++ featuring account management, transaction processing, and file handling capabilities.",
     tech: ["C++", "OOP", "File Handling", "Data Structures"],
     features: ["Account Management", "Transaction History", "Balance Tracking", "Secure Authentication"],
+    repoUrl: "https://github.com/Code-with-zaini/bank-management-system",
+    demoUrl: "",
   },
   {
     title: "Route Optimization Algorithm",
     description: "Implementation of Dijkstra's algorithm for finding the shortest path in weighted graphs, optimizing delivery routes and navigation systems.",
     tech: ["C++", "Graph Theory", "Dijkstra's Algorithm", "Data Structures"],
     features: ["Shortest Path Finding", "Graph Visualization", "Performance Optimization", "Real-world Applications"],
+    repoUrl: "https://github.com/Code-with-zaini/route-optimization",
+    demoUrl: "",
   },
   {
     title: "Web Banking Application",
     description: "Full-stack web application for online banking with user authentication, account management, and transaction processing.",
     tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
     features: ["User Authentication", "Transaction Management", "Account Dashboard", "Security Features"],
+    repoUrl: "https://github.com/Code-with-zaini/web-banking",
+    demoUrl: "",
   },
   {
     title: "Data Science Analysis Project",
     description: "Comprehensive data analysis and machine learning project using real-world datasets to predict trends and extract insights.",
     tech: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
     features: ["Data Preprocessing", "Feature Engineering", "ML Models", "Visualization"],
+    repoUrl: "https://github.com/Code-with-zaini/data-science-analysis",
+    demoUrl: "",
   },
   {
     title: "Data Wrangling with Python",
     description: "Advanced data cleaning and transformation pipeline handling messy datasets and preparing them for analysis.",
     tech: ["Python", "Pandas", "NumPy", "Data Cleaning"],
     features: ["Missing Data Handling", "Outlier Detection", "Data Transformation", "Automated Pipeline"],
+    repoUrl: "https://github.com/Code-with-zaini/data-wrangling-python",
+    demoUrl: "",
   },
   {
     title: "Professional GitHub Profile",
     description: "Well-documented portfolio showcasing code quality, best practices, and comprehensive project documentation.",
     tech: ["Git", "Documentation", "Best Practices", "Open Source"],
     features: ["Clean Code", "Documentation", "Version Control", "Collaboration"],
+    repoUrl: "https://github.com/Code-with-zaini",
+    demoUrl: "",
   },
 ];
 
@@ -104,13 +116,29 @@ export function Projects() {
                 </div>
 
                 <div className="flex gap-2 pt-4 border-t border-border">
-                  <Button variant="outline" size="sm" className="flex-1 group/btn">
-                    <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:text-primary" />
-                    View Demo
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1 group/btn">
-                    <Github className="mr-2 h-4 w-4 group-hover/btn:text-primary" />
-                    Code
+                  {project.demoUrl && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 group/btn"
+                      asChild
+                    >
+                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:text-primary" />
+                        View Demo
+                      </a>
+                    </Button>
+                  )}
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className={project.demoUrl ? "flex-1 group/btn" : "w-full group/btn"}
+                    asChild
+                  >
+                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4 group-hover/btn:text-primary" />
+                      Code
+                    </a>
                   </Button>
                 </div>
               </div>
